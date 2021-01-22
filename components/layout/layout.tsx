@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import styles from './layout.module.scss'
-import utilStyles from 'styles/utils.module.scss'
 import Link from 'next/link'
+import layoutStyles from 'assets/scss/layout/layout.module.scss'
+import utilityStyles from 'assets/scss/utility/utility.module.scss'
 
 const name = '[Your Name]'
 export const siteTitle = 'Next.js Sample Website'
@@ -13,7 +13,7 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children, home }) => {
   return (
-    <div className={styles.container}>
+    <div className={layoutStyles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -29,15 +29,15 @@ const Layout: React.FC<Props> = ({ children, home }) => {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <header className={layoutStyles.header}>
         {home ? (
           <>
             <img
               src="/images/logo.png"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+              className={`${layoutStyles.headerHomeImage} ${utilityStyles.borderCircle}`}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <h1 className={utilityStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
           <>
@@ -45,14 +45,14 @@ const Layout: React.FC<Props> = ({ children, home }) => {
               <a>
                 <img
                   src="/images/logo.png"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
+                  className={`${layoutStyles.headerImage} ${utilityStyles.borderCircle}`}
                   alt={name}
                 />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <h2 className={utilityStyles.headingLg}>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a className={utilityStyles.colorInherit}>{name}</a>
               </Link>
             </h2>
           </>
@@ -60,7 +60,7 @@ const Layout: React.FC<Props> = ({ children, home }) => {
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className={layoutStyles.backToHome}>
           <Link href="/">
             <a>← Back to home</a>
           </Link>

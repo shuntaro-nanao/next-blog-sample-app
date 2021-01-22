@@ -3,9 +3,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getPosts } from 'lib/posts'
 import { Post } from 'types/post/post';
-import Layout, { siteTitle } from 'components/layout'
-import Date from 'components/date'
-import utilStyles from 'styles/utils.module.scss'
+import Layout, { siteTitle } from 'components/layout/layout'
+import Date from 'components/utility/date'
+import utilityStyles from 'assets/scss/utility/utility.module.scss'
 
 type Props = {
   posts: Post[];
@@ -17,19 +17,19 @@ const Home: React.FC<Props> = ({ posts }) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section className={utilityStyles.headingMd}>
         <p>[Your Self Introduction]</p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+      <section className={`${utilityStyles.headingMd} ${utilityStyles.padding1px}`}>
+        <h2 className={utilityStyles.headingLg}>Blog</h2>
+        <ul className={utilityStyles.list}>
           {posts.map(({title, date, id}) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li className={utilityStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className={utilityStyles.lightText}>
                 <Date dateString={date} />
               </small>
             </li>
