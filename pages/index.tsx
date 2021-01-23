@@ -6,7 +6,6 @@ import { Post } from 'types/post/post';
 import Layout, { siteTitle } from 'components/layout/Layout'
 import Date from 'components/utility/date'
 import utilityStyles from 'assets/scss/utility/utility.module.scss'
-import { homedir } from 'os';
 
 type Props = {
   posts: Post[];
