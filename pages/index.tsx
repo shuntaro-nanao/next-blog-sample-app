@@ -3,9 +3,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getPosts } from 'lib/posts'
 import { Post } from 'types/post/post';
-import Layout, { siteTitle } from 'components/layout/layout'
+import Layout, { siteTitle } from 'components/layout/Layout'
 import Date from 'components/utility/date'
 import utilityStyles from 'assets/scss/utility/utility.module.scss'
+import { homedir } from 'os';
 
 type Props = {
   posts: Post[];
@@ -13,7 +14,7 @@ type Props = {
 
 const Home: React.FC<Props> = ({ posts }) => {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>

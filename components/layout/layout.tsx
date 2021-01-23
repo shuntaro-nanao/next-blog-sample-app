@@ -1,17 +1,15 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Header from './Header'
 import layoutStyles from 'assets/scss/layout/layout.module.scss'
-import utilityStyles from 'assets/scss/utility/utility.module.scss'
 
-const name = '[Your Name]'
 export const siteTitle = 'Next.js Sample Website'
 
 type Props = {
   children: React.ReactNode
-  home?: boolean
 };
 
-const Layout: React.FC<Props> = ({ children, home }) => {
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div className={layoutStyles.container}>
       <Head>
@@ -29,43 +27,8 @@ const Layout: React.FC<Props> = ({ children, home }) => {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={layoutStyles.header}>
-        {home ? (
-          <>
-            <img
-              src="/images/logo.png"
-              className={`${layoutStyles.headerHomeImage} ${utilityStyles.borderCircle}`}
-              alt={name}
-            />
-            <h1 className={utilityStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <img
-                  src="/images/logo.png"
-                  className={`${layoutStyles.headerImage} ${utilityStyles.borderCircle}`}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilityStyles.headingLg}>
-              <Link href="/">
-                <a className={utilityStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
+      <Header/>
       <main>{children}</main>
-      {!home && (
-        <div className={layoutStyles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
     </div>
   )
 }
