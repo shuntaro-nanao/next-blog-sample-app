@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 import { getPostIds, getPost } from 'lib/posts'
 import { Post } from 'types/post/post';
-import Layout from 'components/layout/Layout'
+import Layout from 'components/layout/layout'
 import Date from 'components/utility/date'
 import utilityStyles from 'assets/scss/utility/utility.module.scss'
 
