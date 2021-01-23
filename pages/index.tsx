@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { getPosts } from 'lib/posts'
 import { Post } from 'types/post/post';
-import Layout, { siteTitle } from 'components/layout/Layout'
+import Layout, { siteTitle } from '../components/layout/Layout'
 import Date from 'components/utility/date'
 import utilityStyles from 'assets/scss/utility/utility.module.scss'
 
