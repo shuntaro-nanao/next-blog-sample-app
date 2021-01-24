@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import layoutStyles from 'assets/scss/layout/layout.module.scss'
-import utilityStyles from 'assets/scss/utility/utility.module.scss'
+import layoutStyles from '@/assets/scss/layout/layout.module.scss'
+import utilityStyles from '@/assets/scss/utility/utility.module.scss'
 
 const name = '[Your Name]'
 
