@@ -1,0 +1,6 @@
+.page_index{
+  @apply sm:my-5;
+  &__title{
+    @apply font-bold;
+  }
+}

@@ -4,8 +4,7 @@ import { Post } from '@/types/post/post';
 import Layout, { siteTitle } from '@/components/Layout/Layout'
 import Head from 'next/head'
 import BlogList from '@/components/Project/BlogList'
-
-import utilityStyles from '@/assets/scss/utility/utility.module.scss'
+import indexStyles from '@/assets/scss/page/index.module.scss'
 
 type Props = {
   posts: Post[];
@@ -17,10 +16,12 @@ const Home: React.FC<Props> = ({ posts }) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div className={utilityStyles.headingMd}>
+      <div>
         <p>Next.jsを使用したブログテンプレートです。<br/>microCMSから記事データを取得しています。</p>
       </div>
-      <h2 className={utilityStyles.headingLg}>ブログ一覧</h2>
+      <div className={indexStyles.page_index}>
+        <h2 className={indexStyles.page_index__title}>ブログ一覧</h2>
+      </div>
       <BlogList posts={posts} />
     </Layout>
   )

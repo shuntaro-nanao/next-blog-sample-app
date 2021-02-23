@@ -7,17 +7,20 @@ type Props = {
   posts: Post[];
 };
 
-console.log(blogListStyles);
-
 const BlogList: React.FC<Props> = ({ posts }) => {
   return (
     <div className={blogListStyles.p_blog_list}>
       <ul className={blogListStyles.p_blog_list__items}>
-        {posts.map(({title, date, id}) => (
+        {posts.map(({title, date, id, category}) => (
           <li className={blogListStyles.p_blog_list__item} key={id}>
             <Link href={`/posts/${id}`}>
               <a className={blogListStyles.p_blog_list__link}>{title}</a>
             </Link>
+            <div className={blogListStyles.p_blog_list__category}>
+              {category.map((val) => {
+                return <span>{val}</span>
+              })}
+            </div>
             <span className={blogListStyles.p_blog_list__date}>
               <Date dateString={date} />
             </span>
