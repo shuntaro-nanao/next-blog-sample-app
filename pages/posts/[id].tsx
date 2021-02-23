@@ -16,13 +16,13 @@ const PostId: React.FC<Props> = ({ post }) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article>
+      <>
         <h1 className={utilityStyles.headingXl}>{post.title}</h1>
         <div className={utilityStyles.lightText}>
           <Date dateString={post.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
-      </article>
+      </>
     </Layout>
   )
 }

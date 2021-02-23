@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
 import { getPosts } from 'lib/posts'
 import { Post } from '@/types/post/post';
 import Layout, { siteTitle } from '@/components/Layout/Layout'
-import Date from '@/components/Utility/Date'
+import Head from 'next/head'
+import BlogList from '@/components/Project/BlogList'
+
 import utilityStyles from '@/assets/scss/utility/utility.module.scss'
 
 type Props = {
@@ -17,25 +17,11 @@ const Home: React.FC<Props> = ({ posts }) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilityStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-      </section>
-      <section className={`${utilityStyles.headingMd} ${utilityStyles.padding1px}`}>
-        <h2 className={utilityStyles.headingLg}>Blog</h2>
-        <ul className={utilityStyles.list}>
-          {posts.map(({title, date, id}) => (
-            <li className={utilityStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilityStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <div className={utilityStyles.headingMd}>
+        <p>Next.jsを使用したブログテンプレートです。<br/>microCMSから記事データを取得しています。</p>
+      </div>
+      <h2 className={utilityStyles.headingLg}>ブログ一覧</h2>
+      <BlogList posts={posts} />
     </Layout>
   )
 }

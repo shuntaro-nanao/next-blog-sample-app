@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from './Header'
 import layoutStyles from '@/assets/scss/layout/layout.module.scss'
+import utilityStyles from '@/assets/scss/utility/utility.module.scss'
 
 export const siteTitle = 'Next.js Sample Website'
 
@@ -10,12 +11,12 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div className={layoutStyles.container}>
+    <div className={utilityStyles.u_contener}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Next.jsを使用したブログテンプレートです"
         />
         <meta
           property="og:image"
@@ -27,7 +28,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header/>
-      <main>{children}</main>
+      <div className={layoutStyles.l_default}>{children}</div>
     </div>
   )
 }

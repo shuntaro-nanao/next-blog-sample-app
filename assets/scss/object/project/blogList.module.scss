@@ -1,0 +1,15 @@
+.p_blog_list{
+  &__items{
+
+  }
+  &__item{
+    @apply flex flex-col sm:my-5;
+  }
+
+  &__link{
+  }
+
+  &__date{
+
+  }
+}
