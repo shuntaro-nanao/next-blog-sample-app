@@ -2,7 +2,7 @@ Next.js Blog Sample
 
 ## URL
 ```
-https://next-blog-sample-app.vercel.app/
+<https://next-blog-sample-app.vercel.app/>
 ```
 ## Project setup
 ```
