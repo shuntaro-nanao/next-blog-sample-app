@@ -5,8 +5,7 @@ import { Post } from '@/types/post/post';
 import Layout from '@/components/Layout/Layout'
 import Date from '@/components/Utility/Date'
 import utilityStyles from '@/assets/scss/utility/utility.module.scss'
-
-type Props = {
+interface Props {
   post: Post;
 };
 

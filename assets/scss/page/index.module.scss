@@ -3,4 +3,10 @@
   &__title{
     @apply font-bold;
   }
+  &__body{
+    @apply flex;
+  }
+  &__aside{
+    @apply sm:mr-5;
+  }
 }

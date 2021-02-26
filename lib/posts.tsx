@@ -17,7 +17,12 @@ export const getPosts = async (): Promise<Post[]> => {
 
 export const getPost = async (id: string): Promise<Post> => {
   const post = await getResponse(`post/${id}`);
-  return post;
+  return post
+}
+
+export const getCategoryPosts = async (category: string): Promise<Post[]> => {
+  const posts = await getResponse(`post?filters=category[contains]${category}`);
+  return posts.contents
 }
 
 export const getPostIds = async () => {
@@ -30,4 +35,12 @@ export const getPostIds = async () => {
       }
     }
   })
+}
+
+export const getCategories = (posts): string[] => {
+  let categories = []
+  posts.filter((val) => {
+    categories.push(...val.category)
+  })
+  return Array.from(new Set(categories).values())
 }

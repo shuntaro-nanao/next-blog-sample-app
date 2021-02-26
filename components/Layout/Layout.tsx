@@ -5,7 +5,7 @@ import utilityStyles from '@/assets/scss/utility/utility.module.scss'
 
 export const siteTitle = 'Next.js Sample Website'
 
-type Props = {
+interface Props {
   children: React.ReactNode
 };
 

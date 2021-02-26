@@ -17,8 +17,8 @@ const BlogList: React.FC<Props> = ({ posts }) => {
               <a className={blogListStyles.p_blog_list__link}>{title}</a>
             </Link>
             <div className={blogListStyles.p_blog_list__category}>
-              {category.map((val) => {
-                return <span>{val}</span>
+              {category.map((val, index) => {
+                return <span key={index}>{val}</span>
               })}
             </div>
             <span className={blogListStyles.p_blog_list__date}>
