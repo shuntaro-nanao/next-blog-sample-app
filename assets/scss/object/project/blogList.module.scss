@@ -1,9 +1,9 @@
 .p_blog_list{
   &__items{
-
+    @apply flex flex-wrap;
   }
   &__item{
-    @apply flex flex-col sm:my-5;
+    @apply flex flex-col w-2/6 sm:mb-5;
   }
 
   &__link{

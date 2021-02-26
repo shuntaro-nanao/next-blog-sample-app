@@ -29,10 +29,10 @@ const Home: React.FC<Props> = ({ posts, categories }) => {
       </div>
       <div className={indexStyles.page_index__body}>
         <div className={indexStyles.page_index__aside}>
-          <h3>カテゴリ</h3>
+          <h3 className={indexStyles.page_index__aside_title}>category</h3>
           <CategoryList categories={categories} setPostsState={setPostsState} />
         </div>
-        <div>
+        <div className={indexStyles.page_index__content} >
           <BlogList posts={postsState} />
         </div>
       </div>
