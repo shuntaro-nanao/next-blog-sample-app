@@ -21,9 +21,7 @@ const Home: React.FC<Props> = ({ posts, categories }) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div>
-        <p>Next.jsを使用したブログテンプレートです。<br/>microCMSから記事データを取得しています。</p>
-      </div>
+      <p className={indexStyles.page_index__notes}>Next.jsを使用したブログテンプレートです。<br/>microCMSから記事データを取得しています。</p>
       <div className={indexStyles.page_index}>
         <h2 className={indexStyles.page_index__title}>ブログ一覧</h2>
       </div>

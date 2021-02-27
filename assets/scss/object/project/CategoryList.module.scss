@@ -1,0 +1,10 @@
+.p_category_list{
+  &__list{
+    a{
+      @apply block relative;
+      svg{
+        @apply absolute top-0 right-0 w-7;
+      }
+    }
+  }
+}
