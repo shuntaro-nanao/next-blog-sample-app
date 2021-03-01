@@ -5,10 +5,12 @@ import Pagination from '@/components/Component/Pagination'
 import blogListStyles from '@/assets/scss/object/project/blogList.module.scss'
 
 interface Props {
-  posts: Post[];
+  posts: Post[]
+  postsCount: number
+  setPostsState: React.Dispatch<React.SetStateAction<Post[]>>
 };
 
-const BlogList: React.FC<Props> = ({ posts }) => {
+const BlogList: React.FC<Props> = ({ posts, postsCount, setPostsState }) => {
   return (
     <div className={blogListStyles.p_blog_list}>
       <ul className={blogListStyles.p_blog_list__items}>
@@ -28,7 +30,7 @@ const BlogList: React.FC<Props> = ({ posts }) => {
           </li>
         ))}
       </ul>
-      <Pagination></Pagination>
+      <Pagination postsCount={postsCount} setPostsState={setPostsState}></Pagination>
     </div>
   )
 }

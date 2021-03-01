@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next'
-import { getPosts , getCategories } from 'lib/posts'
+import { getPosts , getAllPosts, getCategories } from 'lib/posts'
 import { Post } from '@/types/post/post';
 import Layout, { siteTitle } from '@/components/Layout/Layout'
 import Head from 'next/head'
@@ -10,9 +10,10 @@ import indexStyles from '@/assets/scss/page/index.module.scss'
 interface Props {
   posts: Post[];
   categories: string[];
+  postsCount: number;
 };
 
-const Home: React.FC<Props> = ({ posts, categories }) => {
+const Home: React.FC<Props> = ({ posts, categories, postsCount }) => {
 
   const [postsState, setPostsState] = useState<Post[]>(posts)
 
@@ -30,7 +31,7 @@ const Home: React.FC<Props> = ({ posts, categories }) => {
           <CategoryList categories={categories} setPostsState={setPostsState} />
         </div>
         <div className={indexStyles.page_index__content} >
-          <BlogList posts={postsState} />
+          <BlogList posts={postsState} postsCount={postsCount} setPostsState={setPostsState} />
         </div>
       </div>
     </Layout>
@@ -40,10 +41,13 @@ const Home: React.FC<Props> = ({ posts, categories }) => {
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const posts = await getPosts()
+    const postsAll = await getAllPosts()
+    const postsCount = postsAll.length
     const categories = getCategories(posts)
     return {
       props: {
         posts,
+        postsCount,
         categories
       },
     };

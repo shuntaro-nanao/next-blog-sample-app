@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import { Post, Params } from 'types/post/post';
 
-const perPage = 6;
+export const perPage = 6;
 
 const getResponse = async (endPoint: string, params?) => {
   const headers = {
@@ -25,13 +25,18 @@ export const getPosts = async (pageId : number = 1, category?: string): Promise<
   return posts.contents
 }
 
+export const getAllPosts = async (): Promise<Post[]> =>{
+  const posts = await getResponse('post');
+  return posts.contents
+}
+
 export const getPost = async (id: string): Promise<Post> => {
   const post = await getResponse(`post/${id}`);
   return post
 }
 
 export const getPostIds = async () => {
-  const posts = await getPosts();
+  const posts = await getAllPosts();
   const postIds = posts.map(posts => posts.id)
   return postIds.map(postId => {
     return {
