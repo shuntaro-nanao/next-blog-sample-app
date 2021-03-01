@@ -10,12 +10,9 @@
     @apply w-1/5 sm:mr-10;
   }
   &__aside_title{
-    @apply sm:pb-2 sm:mb-2 border-b border-solid border-gray-400 text-gray-500;
+    @apply pb-4 mb-4 border-b border-solid border-gray-400;
   }
   &__content{
     @apply w-4/5;
-  }
-  &__notes{
-    @apply text-gray-400;
   }
 }

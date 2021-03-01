@@ -1,28 +1,33 @@
 import fetch from 'node-fetch'
-import { Post } from 'types/post/post';
+import { Post, Params } from 'types/post/post';
 
-const getResponse = async (endPoint: string) => {
-  const apiKey = {
+const perPage = 6;
+
+const getResponse = async (endPoint: string, params?) => {
+  const headers = {
     headers: {'X-API-KEY': process.env.MICRO_CMS_API_KEY}
   }
-  const url = `${process.env.MICRO_CMS_API_URL}/${endPoint}`
-  const response = await fetch(url, apiKey)
-  return await response.json();
+  const query = (params !== undefined) ? '?' + new URLSearchParams(params) : ''
+  const url = `${process.env.MICRO_CMS_API_URL}/${endPoint}${query}`
+  console.log(url);
+  const response = await fetch(url, headers)
+  return response.json();
 }
 
-export const getPosts = async (): Promise<Post[]> => {
-  const posts = await getResponse('post');
+export const getPosts = async (pageId : number = 1, category?: string): Promise<Post[]> => {
+  const params: Params = {}
+  params.limit = perPage + ''
+  params.offset = ((pageId - 1) * perPage) + ''
+  if (category !== undefined) {
+    params.filters = `category[contains]${category}`
+  }
+  const posts = await getResponse('post', params);
   return posts.contents
 }
 
 export const getPost = async (id: string): Promise<Post> => {
   const post = await getResponse(`post/${id}`);
   return post
-}
-
-export const getCategoryPosts = async (category: string): Promise<Post[]> => {
-  const posts = await getResponse(`post?filters=category[contains]${category}`);
-  return posts.contents
 }
 
 export const getPostIds = async () => {

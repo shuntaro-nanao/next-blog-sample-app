@@ -1,9 +1,10 @@
 import { Post } from '@/types/post/post';
 import Link from 'next/link'
 import Date from '@/components/Utility/Date'
+import Pagination from '@/components/Component/Pagination'
 import blogListStyles from '@/assets/scss/object/project/blogList.module.scss'
 
-type Props = {
+interface Props {
   posts: Post[];
 };
 
@@ -27,6 +28,7 @@ const BlogList: React.FC<Props> = ({ posts }) => {
           </li>
         ))}
       </ul>
+      <Pagination></Pagination>
     </div>
   )
 }

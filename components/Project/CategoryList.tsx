@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Post } from '@/types/post/post';
-import { getCategoryPosts, getPosts } from '@/lib/posts'
+import { getPosts } from '@/lib/posts'
 import categoryListStyles from '@/assets/scss/object/project/CategoryList.module.scss'
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 const setCategory = async(event, setPostsState, setCategoryState, category) => {
   event.preventDefault()
-  const categoryPosts = await getCategoryPosts(category)
+  const categoryPosts = await getPosts(undefined, category)
   setPostsState(categoryPosts)
   setCategoryState(category)
 }

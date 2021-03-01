@@ -10,3 +10,9 @@ export interface Post {
     width: string
   }
 }
+
+export interface Params {
+  limit?: string;
+  offset?: string;
+  filters?: string;
+}

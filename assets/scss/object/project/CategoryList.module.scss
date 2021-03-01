@@ -1,7 +1,8 @@
 .p_category_list{
   &__list{
+    @apply relative mb-3;
     a{
-      @apply block relative;
+      @apply inline-block;
       svg{
         @apply absolute top-0 right-0 w-7;
       }
