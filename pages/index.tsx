@@ -31,14 +31,26 @@ const Home: React.FC<Props> = ({ posts, categories, postsCount }) => {
       <div className={indexStyles.page_index__body}>
         <div className={indexStyles.page_index__aside}>
           <h3 className={indexStyles.page_index__aside_title}>category</h3>
-          <CategoryList categories={categories} setPostsState={setPostsState} categoryState={categoryState} setCategoryState={setCategoryState} setPageNumberState={setPageNumberState} />
+          <CategoryList
+            categories={categories}
+            categoryState={categoryState}
+            setPostsState={setPostsState}
+            setCategoryState={setCategoryState}
+            setPageNumberState={setPageNumberState}
+          />
         </div>
         <div className={indexStyles.page_index__content} >
           <BlogList posts={postsState} />
         </div>
       </div>
       <div className={indexStyles.page_index__pagination}>
-        <Pagination postsCount={postsCount} setPostsState={setPostsState} categoryState={categoryState} setCategoryState={setCategoryState} pageNumberState={pageNumberState} setPageNumberState={setPageNumberState}></Pagination>
+        <Pagination
+          postsCount={postsCount}
+          setPostsState={setPostsState}
+          categoryState={categoryState}
+          pageNumberState={pageNumberState}
+          setPageNumberState={setPageNumberState}
+        />
       </div>
     </Layout>
   )
