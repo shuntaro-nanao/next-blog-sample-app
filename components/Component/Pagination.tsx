@@ -5,12 +5,14 @@ import { getPosts } from 'lib/posts'
 import paginationStyles from '@/assets/scss/object/component/Pagination.module.scss'
 interface Props {
   postsCount: number
+  pageNumberState: number
+  categoryState: string
   setPostsState: React.Dispatch<React.SetStateAction<Post[]>>
+  setPageNumberState: React.Dispatch<React.SetStateAction<number>>
+  setCategoryState: React.Dispatch<React.SetStateAction<string>>
 };
 
-const Pagination: React.FC<Props> = ({ postsCount, setPostsState }) => {
-
-  const [pageNumberState, setPageNumberState] = useState<number>(1)
+const Pagination: React.FC<Props> = ({ postsCount, pageNumberState, categoryState, setPostsState, setPageNumberState, setCategoryState }) => {
 
   const pages = Math.ceil(postsCount / perPage)
   const pageNumberHtml = [];
@@ -22,8 +24,12 @@ const Pagination: React.FC<Props> = ({ postsCount, setPostsState }) => {
 
   const setPosts = async (event, pageNumber) => {
     event.preventDefault()
-    if (pageNumber === 0 || pageNumber === pageNumberState) return 
-    const pagePosts = await getPosts(pageNumber)
+    if (pageNumber === 0 || pageNumber === pageNumberState) return
+    let category = undefined
+    if (categoryState !== '') {
+      category = categoryState
+    }
+    const pagePosts = await getPosts(pageNumber, category)
     if (pagePosts.length) {
       setPostsState(pagePosts)
       setPageNumberState(pageNumber)

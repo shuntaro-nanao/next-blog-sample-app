@@ -5,14 +5,18 @@ import categoryListStyles from '@/assets/scss/object/project/CategoryList.module
 
 interface Props {
   setPostsState: React.Dispatch<React.SetStateAction<Post[]>>
+  setPageNumberState: React.Dispatch<React.SetStateAction<number>>
+  setCategoryState: React.Dispatch<React.SetStateAction<string>>
   categories: string[]
+  categoryState: string
 };
 
-const setCategory = async(event, setPostsState, setCategoryState, category) => {
+const setCategory = async(event, setPostsState, setCategoryState, setPageNumberState, category) => {
   event.preventDefault()
   const categoryPosts = await getPosts(undefined, category)
   setPostsState(categoryPosts)
   setCategoryState(category)
+  setPageNumberState(1)
 }
 
 const clearPosts = async(setPostsState, setCategoryState) => {
@@ -21,10 +25,7 @@ const clearPosts = async(setPostsState, setCategoryState) => {
   setCategoryState('')
 }
 
-const CategoryList: React.FC<Props> = ({categories, setPostsState}) => {
-
-  const [categoryState, setCategoryState] = useState<string>('')
-
+const CategoryList: React.FC<Props> = ({categories, categoryState, setCategoryState, setPostsState, setPageNumberState}) => {
   return (
     <div>
       <ul>
@@ -33,7 +34,7 @@ const CategoryList: React.FC<Props> = ({categories, setPostsState}) => {
             <a
               href="#"
               className={(category === categoryState) ? 'is-active' : ''}
-              onClick={(event) => setCategory(event, setPostsState, setCategoryState, category)}
+              onClick={(event) => setCategory(event, setPostsState, setCategoryState, setPageNumberState, category)}
             >
               {category}
               {(category === categoryState) ? (

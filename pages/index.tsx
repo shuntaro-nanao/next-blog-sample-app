@@ -6,6 +6,7 @@ import Layout, { siteTitle } from '@/components/Layout/Layout'
 import Head from 'next/head'
 import CategoryList from '@/components/Project/CategoryList'
 import BlogList from '@/components/Project/BlogList'
+import Pagination from '@/components/Component/Pagination'
 import indexStyles from '@/assets/scss/page/index.module.scss'
 interface Props {
   posts: Post[]
@@ -16,6 +17,8 @@ interface Props {
 const Home: React.FC<Props> = ({ posts, categories, postsCount }) => {
 
   const [postsState, setPostsState] = useState<Post[]>(posts)
+  const [categoryState, setCategoryState] = useState<string>('')
+  const [pageNumberState, setPageNumberState] = useState<number>(1)
 
   return (
     <Layout>
@@ -28,11 +31,14 @@ const Home: React.FC<Props> = ({ posts, categories, postsCount }) => {
       <div className={indexStyles.page_index__body}>
         <div className={indexStyles.page_index__aside}>
           <h3 className={indexStyles.page_index__aside_title}>category</h3>
-          <CategoryList categories={categories} setPostsState={setPostsState} />
+          <CategoryList categories={categories} setPostsState={setPostsState} categoryState={categoryState} setCategoryState={setCategoryState} setPageNumberState={setPageNumberState} />
         </div>
         <div className={indexStyles.page_index__content} >
-          <BlogList posts={postsState} postsCount={postsCount} setPostsState={setPostsState} />
+          <BlogList posts={postsState} />
         </div>
+      </div>
+      <div className={indexStyles.page_index__pagination}>
+        <Pagination postsCount={postsCount} setPostsState={setPostsState} categoryState={categoryState} setCategoryState={setCategoryState} pageNumberState={pageNumberState} setPageNumberState={setPageNumberState}></Pagination>
       </div>
     </Layout>
   )
