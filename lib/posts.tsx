@@ -9,7 +9,6 @@ const getResponse = async (endPoint: string, params?) => {
   }
   const query = (params !== undefined) ? '?' + new URLSearchParams(params) : ''
   const url = `${process.env.MICRO_CMS_API_URL}/${endPoint}${query}`
-  console.log(url);
   const response = await fetch(url, headers)
   return response.json();
 }

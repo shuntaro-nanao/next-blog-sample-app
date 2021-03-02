@@ -8,9 +8,9 @@ import CategoryList from '@/components/Project/CategoryList'
 import BlogList from '@/components/Project/BlogList'
 import indexStyles from '@/assets/scss/page/index.module.scss'
 interface Props {
-  posts: Post[];
-  categories: string[];
-  postsCount: number;
+  posts: Post[]
+  categories: string[]
+  postsCount: number
 };
 
 const Home: React.FC<Props> = ({ posts, categories, postsCount }) => {
@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const posts = await getPosts()
     const postsAll = await getAllPosts()
     const postsCount = postsAll.length
-    const categories = getCategories(posts)
+    const categories = getCategories(postsAll)
     return {
       props: {
         posts,
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     };
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
