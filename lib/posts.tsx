@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import { Post, Params } from 'types/post/post';
 
-export const perPage = 6;
+export const perPage = 3;
 
 const getResponse = async (endPoint: string, params?) => {
   const headers = {
@@ -9,23 +9,15 @@ const getResponse = async (endPoint: string, params?) => {
   }
   const query = (params !== undefined) ? '?' + new URLSearchParams(params) : ''
   const url = `${process.env.MICRO_CMS_API_URL}/${endPoint}${query}`
+  console.log(url)
   const response = await fetch(url, headers)
   return response.json();
 }
 
-export const getPosts = async (pageId : number = 1, category?: string): Promise<Post[]> => {
-  const params: Params = {}
-  params.limit = perPage + ''
-  params.offset = ((pageId - 1) * perPage) + ''
-  if (category !== undefined) {
-    params.filters = `category[contains]${category}`
-  }
-  const posts = await getResponse('post', params);
-  return posts.contents
-}
-
 export const getAllPosts = async (): Promise<Post[]> =>{
-  const posts = await getResponse('post');
+  const params: Params = {}
+  params.limit = 999 + ''
+  const posts = await getResponse('post', params);
   return posts.contents
 }
 
@@ -52,4 +44,26 @@ export const getCategories = (posts): string[] => {
     categories.push(...val.category)
   })
   return Array.from(new Set(categories).values())
+}
+
+export const filterCategoriesPosts = (posts: Post[]): {[s: string]: string} => {
+  const categoriesPosts = {}
+  const categories = getCategories(posts)
+  categories.map((category) => {
+    categoriesPosts[category] = []
+    posts.filter((post) =>{
+      if (post.category.indexOf(category) !== -1) {
+        categoriesPosts[category].push(post)
+      }
+    })
+  })
+  return categoriesPosts
+}
+
+export const getCategoriesPosts = (categoriesPosts: object, caterory: string): Post[] => {
+  return categoriesPosts[caterory]
+}
+
+export const filterPageNumberPosts = (posts: Post[], pageNumber: number): Post[] => {
+  return posts.slice((pageNumber - 1) * perPage, perPage * pageNumber)
 }

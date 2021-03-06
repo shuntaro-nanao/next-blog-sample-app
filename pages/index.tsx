@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { GetStaticProps } from 'next'
-import { getPosts , getAllPosts, getCategories } from 'lib/posts'
+import { getAllPosts, getCategories, filterCategoriesPosts, filterPageNumberPosts } from 'lib/posts'
 import { Post } from '@/types/post/post';
 import Layout, { siteTitle } from '@/components/Layout/Layout'
 import Head from 'next/head'
@@ -9,14 +9,16 @@ import BlogList from '@/components/Project/BlogList'
 import Pagination from '@/components/Component/Pagination'
 import indexStyles from '@/assets/scss/page/index.module.scss'
 interface Props {
-  posts: Post[]
-  categories: string[]
+  allPosts: Post[]
   postsCount: number
+  categoriesPosts: object
 };
 
-const Home: React.FC<Props> = ({ posts, categories, postsCount }) => {
+const Home: React.FC<Props> = ({ allPosts, postsCount, categoriesPosts }) => {
 
-  const [postsState, setPostsState] = useState<Post[]>(posts)
+  const initialPosts = filterPageNumberPosts(allPosts, 1)
+  const [currentPostsState, setCurrentPostsState] = useState<Post[]>(initialPosts)
+  const [postsCountState, setPostsCountState] = useState<number>(postsCount)
   const [categoryState, setCategoryState] = useState<string>('')
   const [pageNumberState, setPageNumberState] = useState<number>(1)
 
@@ -32,23 +34,28 @@ const Home: React.FC<Props> = ({ posts, categories, postsCount }) => {
         <div className={indexStyles.page_index__aside}>
           <h3 className={indexStyles.page_index__aside_title}>category</h3>
           <CategoryList
-            categories={categories}
+            categories={getCategories(allPosts)}
+            categoriesPosts={categoriesPosts}
+            initialPosts={initialPosts}
             categoryState={categoryState}
-            setPostsState={setPostsState}
+            initialpPostsCount={postsCount}
+            setCurrentPostsState={setCurrentPostsState}
+            setPostsCountState={setPostsCountState}
             setCategoryState={setCategoryState}
             setPageNumberState={setPageNumberState}
           />
         </div>
         <div className={indexStyles.page_index__content} >
-          <BlogList posts={postsState} />
+          <BlogList posts={currentPostsState} />
         </div>
       </div>
       <div className={indexStyles.page_index__pagination}>
         <Pagination
-          postsCount={postsCount}
-          setPostsState={setPostsState}
+          postsCount={postsCountState}
+          allPosts={allPosts}
           categoryState={categoryState}
           pageNumberState={pageNumberState}
+          setCurrentPostsState={setCurrentPostsState}
           setPageNumberState={setPageNumberState}
         />
       </div>
@@ -58,15 +65,14 @@ const Home: React.FC<Props> = ({ posts, categories, postsCount }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const posts = await getPosts()
-    const postsAll = await getAllPosts()
-    const postsCount = postsAll.length
-    const categories = getCategories(postsAll)
+    const allPosts = await getAllPosts()
+    const categoriesPosts = filterCategoriesPosts(allPosts)
+    const postsCount = allPosts.length
     return {
       props: {
-        posts,
+        allPosts,
         postsCount,
-        categories
+        categoriesPosts,
       },
     };
   } catch (error) {
