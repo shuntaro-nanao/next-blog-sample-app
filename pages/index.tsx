@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { GetStaticProps } from 'next'
 import { getAllPosts, getCategories, filterCategoriesPosts, filterPageNumberPosts } from 'lib/posts'
 import { Post } from '@/types/post/post';

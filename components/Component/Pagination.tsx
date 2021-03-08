@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { perPage, filterPageNumberPosts, filterCategoriesPosts, getCategoriesPosts } from 'lib/posts'
 import { Post } from '@/types/post/post';
 import paginationStyles from '@/assets/scss/object/component/Pagination.module.scss'
@@ -10,7 +11,7 @@ interface Props {
   setPageNumberState: React.Dispatch<React.SetStateAction<number>>
 };
 
-const Pagination: React.FC<Props> = ({
+const Pagination: React.FC<Props> = memo(({
   postsCount,
   allPosts,
   categoryState,
@@ -57,6 +58,6 @@ const Pagination: React.FC<Props> = ({
       </div>
     </div>
   )
-}
+})
 
 export default Pagination

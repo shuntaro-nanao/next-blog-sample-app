@@ -1,7 +1,7 @@
+import { memo } from 'react';
 import { Post } from '@/types/post/post';
-import { getAllPosts, filterPageNumberPosts } from 'lib/posts'
+import { filterPageNumberPosts } from 'lib/posts'
 import categoryListStyles from '@/assets/scss/object/project/CategoryList.module.scss'
-
 interface Props {
   categories: string[]
   categoriesPosts: object
@@ -14,7 +14,7 @@ interface Props {
   setPageNumberState: React.Dispatch<React.SetStateAction<number>>
 };
 
-const CategoryList: React.FC<Props> = ({
+const CategoryList: React.FC<Props> = memo(({
   categories,
   categoriesPosts,
   initialPosts,
@@ -65,6 +65,6 @@ const CategoryList: React.FC<Props> = ({
       </ul>
     </div>
   )
-}
+})
 
 export default CategoryList;
