@@ -1,46 +1,20 @@
 import { memo } from 'react';
 import { Post } from '@/types/post/post';
 import { filterPageNumberPosts } from 'lib/posts'
-import categoryListStyles from '@/assets/scss/object/project/CategoryList.module.scss'
+import categoryListStyles from '@/assets/scss/object/component/CategoryList.module.scss'
 interface Props {
   categories: string[]
-  categoriesPosts: object
-  initialPosts: Post[]
   categoryState: string
-  initialpPostsCount: number
-  setCurrentPostsState: React.Dispatch<React.SetStateAction<Post[]>>
-  setPostsCountState: React.Dispatch<React.SetStateAction<number>>
-  setCategoryState: React.Dispatch<React.SetStateAction<string>>
-  setPageNumberState: React.Dispatch<React.SetStateAction<number>>
+  setCategory: (event: React.MouseEvent, category: string) => void
+  clearPosts:  (event: React.MouseEvent) => void
 };
 
 const CategoryList: React.FC<Props> = memo(({
   categories,
-  categoriesPosts,
-  initialPosts,
   categoryState,
-  initialpPostsCount,
-  setCurrentPostsState,
-  setPostsCountState,
-  setCategoryState,
-  setPageNumberState
+  setCategory,
+  clearPosts
 }) => {
-
-  const setCategory = async(event, category) => {
-    event.preventDefault()
-    setCurrentPostsState(filterPageNumberPosts(categoriesPosts[category], 1))
-    setCategoryState(category)
-    setPostsCountState(categoriesPosts[category].length)
-    setPageNumberState(1)
-  }
-  
-  const clearPosts = (event) => {
-    event.preventDefault()
-    setCurrentPostsState(initialPosts)
-    setPostsCountState(initialpPostsCount)
-    setCategoryState('')
-  }
-
   return (
     <div>
       <ul>
