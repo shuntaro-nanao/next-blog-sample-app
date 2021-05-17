@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Header from '../Header/Header'
-import layoutStyles from './layout.module.scss'
+import layoutStyles from './Layout.module.scss'
 
 export const siteTitle = 'Next.js Sample Website'
 
