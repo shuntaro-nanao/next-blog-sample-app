@@ -1,21 +1,28 @@
-.p_blog_list{
-  &__items{
-    @apply flex flex-wrap;
-  }
-  &__item{
-    @apply flex flex-col w-2/6 sm:mb-5;
-  }
+@import "~/assets/scss/_variable.scss";
 
-  &__link{
-  }
+.wapper {
+  
+}
 
-  &__date{
-    @apply text-sm;
-  }
+.items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
-  &__category{
-    span{
-      @apply sm:mr-3 text-gray-400 text-sm;
-    }
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 33.333333%;
+}
+
+.date {
+  color: $textMainColor;
+}
+
+.category {
+  &__label {
+    margin-right: 0.75rem;
+    color: $textSubColor;
   }
 }

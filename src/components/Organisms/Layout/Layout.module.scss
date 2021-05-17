@@ -1,7 +1,8 @@
-.contener{
-  @apply container sm:m-auto;
+.contener {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.wrap{
-  @apply sm:mt-5
+.wapper {
+  margin-top: 40px;
 }

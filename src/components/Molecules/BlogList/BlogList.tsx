@@ -9,19 +9,19 @@ interface Props {
 
 const BlogList: React.FC<Props> = ({ posts }) => {
   return (
-    <div className={blogListStyles.p_blog_list}>
-      <ul className={blogListStyles.p_blog_list__items}>
+    <div className={blogListStyles.wapper}>
+      <ul className={blogListStyles.items}>
         {posts.map(({title, date, id, category}) => (
-          <li className={blogListStyles.p_blog_list__item} key={id}>
+          <li className={blogListStyles.item} key={id}>
             <Link href={`/posts/${id}`}>
-              <a className={blogListStyles.p_blog_list__link}>{title}</a>
+              <a className={blogListStyles.link}>{title}</a>
             </Link>
-            <div className={blogListStyles.p_blog_list__category}>
+            <div className={blogListStyles.category}>
               {category.map((val, index) => {
-                return <span key={index}>{val}</span>
+                return <span className={blogListStyles.category__label} key={index}>{val}</span>
               })}
             </div>
-            <span className={blogListStyles.p_blog_list__date}>
+            <span className={blogListStyles.date}>
               <Date dateString={date} />
             </span>
           </li>

@@ -27,7 +27,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header/>
-      <div className={layoutStyles.wrap}>{children}</div>
+      <div className={layoutStyles.wapper}>{children}</div>
     </div>
   )
 }

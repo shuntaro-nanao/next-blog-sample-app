@@ -1,14 +1,16 @@
-.p_blog{
-  &__body{
-    @apply flex;
+.body {
+  display: flex;
+}
+
+.aside {
+  width: 20%;
+  margin-right: 2.5rem;
+  &__title {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
   }
-  &__aside{
-    @apply w-1/5 sm:mr-10;
-  }
-  &__aside_title{
-    @apply pb-4 mb-4 border-b border-solid border-gray-400;
-  }
-  &__content{
-    @apply w-4/5;
-  }
+}
+
+.content {
+  width: 80%;
 }

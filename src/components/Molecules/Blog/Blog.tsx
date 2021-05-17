@@ -61,9 +61,9 @@ const Blog: React.FC<Props> = ({ allPosts, postsCount, categoriesPosts }) => {
 
   return (
     <>
-      <div className={BlogStyles.p_blog__body}>
-        <div className={BlogStyles.p_blog__aside}>
-          <h3 className={BlogStyles.p_blog__aside_title}>category</h3>
+      <div className={BlogStyles.body}>
+        <div className={BlogStyles.aside}>
+          <h3 className={BlogStyles.aside_title}>category</h3>
           <CategoryList
             categories={categories}
             categoryState={categoryState}
@@ -71,11 +71,11 @@ const Blog: React.FC<Props> = ({ allPosts, postsCount, categoriesPosts }) => {
             clearPosts={clearPosts}
           />
         </div>
-        <div className={BlogStyles.p_blog__content} >
+        <div className={BlogStyles.content} >
           <BlogList posts={currentPostsState} />
         </div>
       </div>
-      <div className={BlogStyles.p_blog__pagination}>
+      <div className={BlogStyles.pagination}>
         <Pagination
           postsCount={postsCountState}
           pageNumberState={pageNumberState}

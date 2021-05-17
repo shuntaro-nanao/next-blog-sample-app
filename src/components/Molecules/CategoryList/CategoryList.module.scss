@@ -1,11 +1,17 @@
-.p_category_list{
-  &__list{
-    @apply relative mb-3;
-    a{
-      @apply inline-block;
-      svg{
-        @apply absolute top-0 right-0 w-7;
-      }
-    }
-  }
+@import "~/assets/scss/_variable.scss";
+
+.list {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.link {
+  display: inline-block;
+}
+
+.icon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 1.75rem;
 }

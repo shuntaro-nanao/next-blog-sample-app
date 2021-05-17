@@ -3,9 +3,9 @@ import headerStyles from './Header.module.scss'
 
 const Header: React.FC = () => {
   return (
-    <header className={headerStyles.l_header}>
+    <header className={headerStyles.wapper}>
       <Link href="/">
-        <a>
+        <a className={headerStyles.link}>
           <img
             src="/images/logo.png"
             alt="next-blog-sample-app"
