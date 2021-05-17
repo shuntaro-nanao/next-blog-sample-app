@@ -4,7 +4,7 @@ import { getCategories, filterPageNumberPosts, getCategoriesPosts, filterCategor
 import CategoryList from '~/components/Molecules/CategoryList/CategoryList'
 import BlogList from '~/components/Molecules/BlogList/BlogList'
 import Pagination from '~/components/Molecules/Pagination/Pagination'
-import BlogStyles from './Blog.module.scss'
+import BlogStyles from './BlogListLayout.module.scss'
 
 interface Props {
   allPosts: Post[]

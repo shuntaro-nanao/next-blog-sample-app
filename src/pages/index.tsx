@@ -3,7 +3,7 @@ import { getAllPosts, filterCategoriesPosts } from '~/lib/posts'
 import { Post } from '~/types/post/post';
 import Layout, { siteTitle } from '~/components/Organisms/Layout/Layout'
 import Head from 'next/head'
-import Blog from '~/components/Molecules/Blog/Blog';
+import Blog from '~/components/Organisms/BlogListLayout/BlogListLayout';
 interface Props {
   allPosts: Post[]
   postsCount: number
