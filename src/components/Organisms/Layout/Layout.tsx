@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import Header from './Header'
-import layoutStyles from '~/assets/scss/layout/layout.module.scss'
-import utilityStyles from '~/assets/scss/utility/utility.module.scss'
+import Header from '../Header/Header'
+import layoutStyles from './layout.module.scss'
 
 export const siteTitle = 'Next.js Sample Website'
 
@@ -11,7 +10,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div className={utilityStyles.u_contener}>
+    <div className={layoutStyles.contener}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -28,7 +27,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header/>
-      <div className={layoutStyles.l_default}>{children}</div>
+      <div className={layoutStyles.wrap}>{children}</div>
     </div>
   )
 }

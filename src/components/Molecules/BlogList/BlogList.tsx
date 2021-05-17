@@ -1,7 +1,7 @@
 import { Post } from '~/types/post/post';
 import Link from 'next/link'
-import Date from '~/components/Utility/Date'
-import blogListStyles from '~/assets/scss/object/component/blogList.module.scss'
+import Date from '~/components/Atoms/Date/Date'
+import blogListStyles from './BlogList.module.scss'
 
 interface Props {
   posts: Post[]

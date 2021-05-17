@@ -2,9 +2,8 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 import { getPostIds, getPost } from '~/lib/posts'
 import { Post } from '~/types/post/post';
-import Layout from '~/components/Layout/Layout'
-import Date from '~/components/Utility/Date'
-import utilityStyles from '~/assets/scss/utility/utility.module.scss'
+import Layout from '~/components/Organisms/Layout/Layout'
+import Date from '~/components/Atoms/Date/Date'
 interface Props {
   post: Post;
 };
@@ -16,8 +15,8 @@ const PostId: React.FC<Props> = ({ post }) => {
         <title>{post.title}</title>
       </Head>
       <>
-        <h1 className={utilityStyles.headingXl}>{post.title}</h1>
-        <div className={utilityStyles.lightText}>
+        <h1>{post.title}</h1>
+        <div>
           <Date dateString={post.date} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />

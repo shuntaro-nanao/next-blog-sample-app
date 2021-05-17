@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import categoryListStyles from '~/assets/scss/object/component/CategoryList.module.scss'
+import categoryListStyles from './CategoryList.module.scss'
 interface Props {
   categories: string[]
   categoryState: string

@@ -1,4 +1,4 @@
-import '~/assets/scss/foundation/base.scss'
+import '~/assets/scss/base.scss'
 import { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import headerStyles from '~/assets/scss/layout/header.module.scss'
+import headerStyles from './Header.module.scss'
 
 const Header: React.FC = () => {
   return (
