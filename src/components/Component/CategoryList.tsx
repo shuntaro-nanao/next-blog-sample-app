@@ -1,7 +1,5 @@
 import { memo } from 'react';
-import { Post } from '@/types/post/post';
-import { filterPageNumberPosts } from 'lib/posts'
-import categoryListStyles from '@/assets/scss/object/component/CategoryList.module.scss'
+import categoryListStyles from '~/assets/scss/object/component/CategoryList.module.scss'
 interface Props {
   categories: string[]
   categoryState: string

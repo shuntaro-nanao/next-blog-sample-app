@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import { Post, Params } from 'types/post/post';
+import { Post, Params } from '~/types/post/post';
 
 export const perPage = 3;
 

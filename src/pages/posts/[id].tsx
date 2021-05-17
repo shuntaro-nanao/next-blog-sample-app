@@ -1,10 +1,10 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
-import { getPostIds, getPost } from '@/lib/posts'
-import { Post } from '@/types/post/post';
-import Layout from '@/components/Layout/Layout'
-import Date from '@/components/Utility/Date'
-import utilityStyles from '@/assets/scss/utility/utility.module.scss'
+import { getPostIds, getPost } from '~/lib/posts'
+import { Post } from '~/types/post/post';
+import Layout from '~/components/Layout/Layout'
+import Date from '~/components/Utility/Date'
+import utilityStyles from '~/assets/scss/utility/utility.module.scss'
 interface Props {
   post: Post;
 };

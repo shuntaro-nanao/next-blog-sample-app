@@ -1,10 +1,10 @@
 import { useState, useCallback, useMemo } from 'react';
-import { Post } from '@/types/post/post';
-import { getCategories, filterPageNumberPosts, getCategoriesPosts, filterCategoriesPosts } from 'lib/posts'
-import CategoryList from '@/components/Component/CategoryList'
-import BlogList from '@/components/Component/BlogList'
-import Pagination from '@/components/Component/Pagination'
-import BlogStyles from '@/assets/scss/object/project/Blog.module.scss'
+import { Post } from '~/types/post/post';
+import { getCategories, filterPageNumberPosts, getCategoriesPosts, filterCategoriesPosts } from '~/lib/posts'
+import CategoryList from '~/components/Component/CategoryList'
+import BlogList from '~/components/Component/BlogList'
+import Pagination from '~/components/Component/Pagination'
+import BlogStyles from '~/assets/scss/object/project/Blog.module.scss'
 
 interface Props {
   allPosts: Post[]

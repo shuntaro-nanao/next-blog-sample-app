@@ -1,7 +1,6 @@
 import { memo } from 'react';
-import { perPage, filterPageNumberPosts, filterCategoriesPosts, getCategoriesPosts } from 'lib/posts'
-import { Post } from '@/types/post/post';
-import paginationStyles from '@/assets/scss/object/component/Pagination.module.scss'
+import { perPage } from '~/lib/posts'
+import paginationStyles from '~/assets/scss/object/component/Pagination.module.scss'
 interface Props {
   postsCount: number
   pageNumberState: number

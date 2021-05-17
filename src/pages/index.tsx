@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next'
-import { getAllPosts, filterCategoriesPosts } from 'lib/posts'
-import { Post } from '@/types/post/post';
-import Layout, { siteTitle } from '@/components/Layout/Layout'
+import { getAllPosts, filterCategoriesPosts } from '~/lib/posts'
+import { Post } from '~/types/post/post';
+import Layout, { siteTitle } from '~/components/Layout/Layout'
 import Head from 'next/head'
-import indexStyles from '@/assets/scss/page/index.module.scss'
-import Blog from '@/components/Project/Blog';
+import indexStyles from '~/assets/scss/page/index.module.scss'
+import Blog from '~/components/Project/Blog';
 interface Props {
   allPosts: Post[]
   postsCount: number
