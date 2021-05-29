@@ -4,7 +4,8 @@ import { Post } from '~/types/post/post';
 import Layout, { siteTitle } from '~/components/Organisms/Layout/Layout'
 import Head from 'next/head'
 import Blog from '~/components/Organisms/BlogListLayout/BlogListLayout';
-interface Props {
+
+type Props = {
   allPosts: Post[]
   postsCount: number
   categoriesPosts: object
@@ -16,10 +17,11 @@ const Home: React.FC<Props> = ({ allPosts, postsCount, categoriesPosts }) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div>
-        <h2>ブログ一覧</h2>
-      </div>
-      <Blog allPosts={allPosts} postsCount={postsCount} categoriesPosts={categoriesPosts} />
+      <Blog
+        allPosts={allPosts}
+        postsCount={postsCount}
+        categoriesPosts={categoriesPosts}
+      />
     </Layout>
   )
 }

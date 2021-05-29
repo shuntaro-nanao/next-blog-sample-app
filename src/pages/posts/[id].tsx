@@ -4,7 +4,8 @@ import { getPostIds, getPost } from '~/lib/posts'
 import { Post } from '~/types/post/post';
 import Layout from '~/components/Organisms/Layout/Layout'
 import Date from '~/components/Atoms/Date/Date'
-interface Props {
+
+type Props = {
   post: Post;
 };
 

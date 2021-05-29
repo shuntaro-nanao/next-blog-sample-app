@@ -1,8 +1,18 @@
-.contener {
-  max-width: 1200px;
+@import "~/assets/scss/_variable.scss";
+
+.container{
+  width: $containerWidth;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
-.wapper {
+@media only screen and (max-width: $screenSp) {
+  .container{
+    width: 100%;
+    padding: 0 5vw;
+  }
+}
+
+.wrapper {
   margin-top: 40px;
 }

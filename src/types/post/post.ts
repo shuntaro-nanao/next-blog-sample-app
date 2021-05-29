@@ -1,4 +1,4 @@
-export interface Post {
+export type Post = {
   id: string
   date: string
   title: string
@@ -11,7 +11,7 @@ export interface Post {
   }
 }
 
-export interface Params {
+export type Params = {
   limit?: string;
   offset?: string;
   filters?: string;

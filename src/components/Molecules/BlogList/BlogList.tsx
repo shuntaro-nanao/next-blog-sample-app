@@ -3,13 +3,13 @@ import Link from 'next/link'
 import Date from '~/components/Atoms/Date/Date'
 import blogListStyles from './BlogList.module.scss'
 
-interface Props {
+type Props = {
   posts: Post[]
 };
 
 const BlogList: React.FC<Props> = ({ posts }) => {
   return (
-    <div className={blogListStyles.wapper}>
+    <div className={blogListStyles.wrapper}>
       <ul className={blogListStyles.items}>
         {posts.map(({title, date, id, category}) => (
           <li className={blogListStyles.item} key={id}>

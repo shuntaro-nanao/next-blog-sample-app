@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import categoryListStyles from './CategoryList.module.scss'
-interface Props {
+
+type Props = {
   categories: string[]
   categoryState: string
   setCategory: (event: React.MouseEvent, category: string) => void

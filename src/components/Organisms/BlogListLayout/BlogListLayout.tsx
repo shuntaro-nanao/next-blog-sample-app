@@ -6,7 +6,7 @@ import BlogList from '~/components/Molecules/BlogList/BlogList'
 import Pagination from '~/components/Molecules/Pagination/Pagination'
 import BlogStyles from './BlogListLayout.module.scss'
 
-interface Props {
+type Props = {
   allPosts: Post[]
   postsCount: number
   categoriesPosts: object
@@ -61,6 +61,7 @@ const Blog: React.FC<Props> = ({ allPosts, postsCount, categoriesPosts }) => {
 
   return (
     <>
+      <h2 className={BlogStyles.title}>ブログ一覧</h2>
       <div className={BlogStyles.body}>
         <div className={BlogStyles.aside}>
           <h3 className={BlogStyles.aside_title}>category</h3>
